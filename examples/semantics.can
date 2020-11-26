@@ -22,10 +22,12 @@ variables
   mstimer d;
   int a;
 } 
-
+/*
+this is a block comment
+*/
 VoId CaplIsCaseInsensitiveCOOL/*sd*/(int `message, float UnknownSysVar)
 {
-  d.setCyclic(12); 
+  d.setCyclic(12); //line comment
   dllInit(233);    
 }
 
