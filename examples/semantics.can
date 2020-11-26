@@ -1,0 +1,36 @@
+/*@!Encoding:1252*/
+includes
+{
+  /*()=**/
+  #pragma netlibrary ("..\Modules\ClassLibrary1.dll")
+
+#if TOOL_MAJOR_VERSION >= 13
+  #pragma library ("..\Modules\capldll.vmodule")
+#else
+  #if X64
+    #pragma library("..\Modules\Windows-x64\capldll.dll")
+  #else
+    #pragma library("..\Modules\Windows-x86\capldll.dll")
+  #endif
+#endif
+}
+
+variables
+{
+  long color = makeRGB(255,0,0);
+  char foo/*this*/[12]=/*int*/"elcount";
+  mstimer d;
+  int a;
+} 
+
+VoId CaplIsCaseInsensitiveCOOL/*sd*/(int `message, float UnknownSysVar)
+{
+  d.setCyclic(12); 
+  dllInit(233);    
+}
+
+on timer d
+{
+  write("this is a string no keyword highlighting char int @ $\" float");
+  @sysvar::Variable::WithKeywordName::message = 2;
+}
