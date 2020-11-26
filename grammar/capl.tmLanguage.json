@@ -1,0 +1,69 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"scopeName": "source.capl",
+	"name": "CAPL",
+	"patterns": [
+		{
+			"include": "#sysvars"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#preprocessor"
+		},
+		{
+			"include":"#comments"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.other.capl",
+				"match": "(?i)\\b(const|int|word|char|byte|long|dword|int64|qword|message|pg|linmessage|linFrame|mostMessage|mostRawMessage|mostAMSMessage|gmlanmessage|frSlot|frStartCycle|frFrame|frConfiguration|frNullFrame|frFrameError|frSymbol|frPOCState|frError|frPDU|bapMessage|bapError|j1587Param|j1587Message|j1587ErrorMessage|diagRequest|diagResponse|diagRequestSent|testcase|testsequence|double|float|phys|hex|pg|break|continue|do|else|for|if|return|while|switch|default|case|variables|prestart|stopMeasurement|prestop|errorActive|errorPassive|warningLimit|busOff|linSlaveTimeout|linSchedulerModeChange|linTransmError|linCsError|linReceiveError|linSyncError|linBaudrateEvent|linDlcinfo|linSleepModeEvent|linWakeupFrame|linHeader|linLongDominantSignal|linSpikeEvent|mostLightLockError|errorframe|this|void|envvar|envvarInt|envvarFloat|envvarString|envvarData|caplopt|dbNetwork|dbNode|dbNodeCAN|dbNodeJ1939|dbNodeLIN|dbNodeFr|dbRxNode|dbFrFrame|dbFrPDU|dbMsg|dbMsgCAN|dbMsgJ1939|dbMsgLIN|dbPDU|dbHdrId|dbSig|thisNode|getValue|putValue|getValueSize|abs|strlen|elcount|setTimer|rx|tx|txrequest|rxremote|txremote|txrequestremote|rxdata|txdata|txrequestdata|dataframe|replyreq|immreply|defreply|now|lpt1|lpt2|lpt3|pi|includes|signal|signal_change|signal_update|txrq|raw|raw64|sysvarInt|sysvarFloat|sysvarString|sysvarIntArray|sysvarFloatArray|sysvarData|sysvarLongLong|sysvarVTS|sysvar_change|sysvar_update|sysvarMember|sysvarIF|enum|struct|_align|multiplexed_message|multiplexed_pg|__size_of|__offset_of|__alignment_of|ScopeEvent|ScopeAnalyseHandle|ScopeBitMask|ScopeMaskViolationData|ScopeBitData|ScopeAnalysisSetup|ScopeMaskViolationData2|ScopeBitMaskPolygon|ScopeAnalyseResult|ScopeBitTransitionTimeResult|ScopeAnalyseBitSegment|ScopeAnalyseBitSegmentData|ScopeBitDataDutyCycle|ScopeSerialBitAnalysisViolationData|ScopeDutyCycleDefinition|ScopeFieldLengthData|ScopeAnalyseRange|ScopeSinglePolygonBitMask|ScopeEdgeAnalyseResult|ScopeSignalMeasurement|CANSettings|linVersionInfo|syspar|varprop|export|a429Word|a429WordError|a429Settings|a429Error|serviceSignal|serviceSignal_change|serviceSignal_update|serviceSignalNumber|serviceSignalData|serviceSignalString|ethernetPacket|ethernetErrorPacket|ethernetStatus|a664Message|a664Frame|pdu|pdu_Change|pdu_Update|short|ethernetPacketForwarded|Psi5SensorFrameStruct|SentSensorFrameStruct|canDisturbanceBitSequence|canDisturbanceFrameSequenceField|canDisturbanceCombinedFrameTrigger|canDisturbanceErrorFrameTrigger|canDisturbanceExternalTrigger|canDisturbanceFrameSequence|canDisturbanceFrameTrigger|canDisturbanceSequence|canDisturbanceTriggerRepetitions|txSignalRef|rxSignalRef|providedMethodRef|consumedMethodRef|providedServiceRef|consumedServiceRef|providedEventRef|consumedEventRef|providedFieldRef|consumedFieldRef|providedPDURef|consumedPDURef|txPDURef|rxPDURef|serviceProviderRef|serviceConsumerRef|eventProviderRef|eventConsumerRef|fieldProviderRef|fieldConsumerRef|signalSenderRef|signalReceiverRef|pduProviderRef|pduConsumerRef|pduSenderRef|pduReceiverRef|callContext|fctCalled|fctCalling|fctReturned|fctReturning|SD_provider_discovered|SD_consumer_discovered|SD_service_discovery|SD_connection_requested|SD_connection_established|SD_connection_failed|Abstract_EventSubscribed|Abstract_EventUnsubscribed|Abstract_FieldSubscribed|Abstract_FieldUnsubscribed|syspardata|PDU_Subscribed|PDU_Unsubscribed|stack|delegate|ip_Address|ip_Endpoint|SOMEIP_EventGroupSubscribed|SOMEIP_EventGroupUnsubscribed|measuredSignalRef|measuredEventRef|measuredMethodRef|measuredServiceRef|measuredFieldRef|measuredPDURef|measuredServicePDURef|COParticipant|value_change|value_update|ethernetport|ethernetportinfo|__type_of|distObjRef|virtNet|timer|msTimer|hrTimer|key|start|on|testfunction)\\b"
+			}]
+		},
+		"preprocessor": {
+			"patterns": [{
+				"name": "keyword.other.preprocessor.capl",
+				"match": "(?i)^\\s*#\\s*(include|if|elif|else|endif|define|pragma)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.capl",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.capl",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"name": "comment.capl",
+			"patterns":[
+				{
+					"name": "comment.block.capl",
+					"begin": "/\\*",
+					"end": "\\*/"
+				},
+				{
+					"name": "comment.line.capl",
+					"begin": "//",
+					"end":"\\n"					
+				}
+			]			
+		},
+		"sysvars": {
+			"name": "variable.other.sysvar.capl",
+			"begin": "(?i)(\\s|^\\s)[@]?sysvar::",
+			"end": "(\\s|=|(?=;))"			
+		}
+	},
+	"fileTypes": ["can","cin"]
+
+}
